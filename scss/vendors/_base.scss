@@ -1,0 +1,20 @@
+// ****** Our base variables ******* //
+
+// $font-size-base: 0.95rem !default;
+$font-family-base : 'Raleway', sans-serif;
+$font-family-head-base : 'Nothing You Could Do', cursive;
+$font-family-lead-base : 'Montserrat', sans-serif;
+
+// Font Weight Base
+$font-weight-light:           100 !default;
+$font-weight-normal:          500 !default;
+$font-weight-bold:            700 !default;
+
+@import "_variables"; // --- Vendors Variables
+@import "bootstrap/bootstrap"; // --- Vendors Bootstrap 4
+@import "fontawesome/scss/fa-brands"; // --- Vendors Font Awesome 5
+@import "fontawesome/scss/fa-regular"; // --- Vendors Font Awesome 5
+@import "fontawesome/scss/fa-solid"; // --- Vendors Font Awesome 5
+@import "fontawesome/scss/fontawesome"; // --- Vendors Font Awesome 5
+
+
