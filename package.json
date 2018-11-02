@@ -1,0 +1,34 @@
+{
+  "name": "gulp-pug-starter",
+  "version": "1.0.0",
+  "description": "Frontend development using Gulp and Jekyll",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dyarfi@bitbucket.org/dyarfi/gulp-pug.git"
+  },
+  "keywords": [
+    "pug",
+    "gulp",
+    "node",
+    "frontend",
+    "SCSS"
+  ],
+  "author": "Defrian Yarfi",
+  "license": "ISC",
+  "homepage": "test",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-data": "^1.3.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-twig": "^1.2.0",
+    "gulp-watch": "^5.0.1"
+  }
+}
