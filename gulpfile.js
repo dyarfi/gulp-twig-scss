@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     data = require('gulp-data'),
 	twig = require('gulp-twig'), // Decided to use twig, because already familiar with it
     prefix = require('gulp-autoprefixer'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass'),    
+	plumber = require('gulp-plumber'),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
 	browserSync = require('browser-sync'),
@@ -29,6 +30,13 @@ var paths = {
 gulp.task('twig', function () {
 //   return gulp.src(['./client/templates/*.twig','./client/data/head.twig'])
   return gulp.src(['./client/templates/*.twig'])
+    // Stay live and reload on error
+	.pipe(plumber({
+		handleError: function (err) {
+			console.log(err);
+			this.emit('end');
+		}
+	}))
   	// Load template pages json data
     .pipe(data(function (file) {
 		return JSON.parse(fs.readFileSync(paths.data + path.basename(file.path) + '.json'));		
@@ -75,6 +83,13 @@ gulp.task('browser-sync', ['sass', 'twig', 'js'], function () {
  */
 gulp.task('sass', function () {
   return gulp.src(paths.sass + 'vendors/main.scss')
+    // Stay live and reload on error
+	.pipe(plumber({
+		handleError: function (err) {
+			console.log(err);
+			this.emit('end');
+		}
+	}))
   	.pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [paths.sass + 'vendors/'],
