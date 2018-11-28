@@ -1,25 +1,25 @@
 {
-  "name": "gulp-pug-starter",
+  "name": "gulp-twig-scss",
   "version": "1.0.0",
-  "description": "Frontend development using Gulp and Jekyll",
+  "description": "Frontend development using Gulp, Twig and SCSS",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://dyarfi@bitbucket.org/dyarfi/gulp-pug.git"
+    "url": "git+https://dyarfi@bitbucket.org/dyarfi/gulp-twig-scss.git"
   },
   "keywords": [
-    "pug",
+    "twig",
     "gulp",
-    "node",
+    "HTML",
     "frontend",
     "SCSS"
   ],
   "author": "Defrian Yarfi",
   "license": "ISC",
-  "homepage": "test",
+  "homepage": "https://dyarfi.github.io",
   "dependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",

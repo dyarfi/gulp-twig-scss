@@ -3,7 +3,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Base
+| Base Variables
 |--------------------------------------------------------------------------
 */
 $font-family-base : 'Raleway', sans-serif;
@@ -39,8 +39,8 @@ $dark-primary : darken($primary, 28%);
 $dark-success : darken($success, 28%);
 $dark-warning : darken($warning, 28%);
 $dark-danger : darken($danger, 28%);
-$dark-info : darken($info, 15%);
-$dark-secondary : darken($secondary, 15%);
+$dark-info : darken($info, 16%);
+$dark-secondary : darken($secondary, 16%);
 $dark-theme : darken($theme, 32%);
 
 // Display overide

@@ -41,19 +41,12 @@ gulp.task('twig', function () {
     .pipe(data(function (file) {
 		return JSON.parse(fs.readFileSync(paths.data + path.basename(file.path) + '.json'));		
 	}))
-	.on('error', function (err) {
-      process.stderr.write(err.message + '\n');
-      this.emit('end');
-    })
     .pipe(twig())
     .on('error', function (err) {
       process.stderr.write(err.message + '\n');
       this.emit('end');
     })
-	.pipe(gulp.dest(paths.build))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
+	.pipe(gulp.dest(paths.build));
 });
 
 /**
@@ -83,6 +76,7 @@ gulp.task('browser-sync', ['sass', 'twig', 'js'], function () {
  */
 gulp.task('sass', function () {
   return gulp.src(paths.sass + 'vendors/main.scss')
+    .pipe(sourcemaps.init())
     // Stay live and reload on error
 	.pipe(plumber({
 		handleError: function (err) {
@@ -90,12 +84,10 @@ gulp.task('sass', function () {
 			this.emit('end');
 		}
 	}))
-  	.pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [paths.sass + 'vendors/'],
       outputStyle: 'expanded'
-	}))
-	.pipe(sourcemaps.write())
+	}))	
 	.on('error', function (err) {
 		sass.logError
 		this.emit('end');
@@ -103,10 +95,8 @@ gulp.task('sass', function () {
     .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {
       cascade: true
     }))
-    .pipe(gulp.dest(paths.css))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.css));
 });
 
 /**
@@ -116,14 +106,12 @@ gulp.task('js', function(){
     return gulp.src('build/assets/js/script.js')
         .pipe(sourcemaps.init())
         .pipe(concat('script.min.js'))
-		.pipe(sourcemaps.write())		
-		.pipe(gulp.dest('build/assets/js'))
-		.on('error', function (err) {
+        .on('error', function (err) {
             console.log(err.toString());
             this.emit('end');
-        }).pipe(browserSync.reload({
-			stream: true
-		}));
+        })
+		.pipe(sourcemaps.write('.'))		
+		.pipe(gulp.dest('build/assets/js'));
 });
 
 /**
