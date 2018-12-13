@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://dyarfi@bitbucket.org/dyarfi/gulp-twig-scss.git"
+    "url": "git+https://github.com/dyarfi/gulp-twig-scss"
   },
   "keywords": [
     "twig",
