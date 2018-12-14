@@ -1,0 +1,51 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}
+    
+    <!-- ================== Block Main Top ================== -->
+    {% include 'blocks/block-main-top.twig' %}
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-lg-6 py-5">
+                <h3>We are the IOT Agency</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum quos minus saepe.</p>
+                <em>Analysis for your IOT Projects</em>
+            </div>
+            <div class="col-lg-6 py-5">
+                <blockquote>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, consectetur numquam maiores quidem reiciendis culpa, laudantium sit consequatur sunt hic possimus minima?
+                    <cite>- Connected Devices</cite>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-center my-5 py-5">
+            <div class="card-deck no-gutters">
+                {% for service in services %}
+                {% set disc = 2 %} 
+                <div class="col-sm-12 col-md-6 col-lg-3 position-relative">
+                    <div class="card rounded mb-4">
+                        <!-- <img class="card-img-top" src="{{ promo.image }}" alt="{{ service.title }}"> -->
+                        <div class="card-header">                                
+                            <h4 class="card-title m-0 p-0">{{ service.title }}</h4>
+                        </div>
+                        <div class="card-body text-left">
+                            <p class="card-text">{{ service.description }}</p>
+                            <span class="font-lead-base font-weight-bold">{{disc}}0% Off!</span>
+                            <div class="promotion-promo">$ {{service.price - disc % 100}}</div>
+                            <div class="promotion-price">$ {{service.price}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>  
+    </div>
+
+    <!-- ================== Block Main Bottom ================== -->
+    <div class="container my-5">
+        {% include 'blocks/block-main-bottom.twig' %}
+    </div>
+
+{% endblock %}
