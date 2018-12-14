@@ -75,29 +75,36 @@ gulp.task('browser-sync', ['sass', 'twig', 'js'], function () {
  * need for vendor prefixes then live reload the browser.
  */
 gulp.task('sass', function () {
-  return gulp.src(paths.sass + 'vendors/main.scss')
-    .pipe(sourcemaps.init())
-    // Stay live and reload on error
-	.pipe(plumber({
-		handleError: function (err) {
-			console.log(err);
-			this.emit('end');
-		}
-	}))
-    .pipe(sass({
-      includePaths: [paths.sass + 'vendors/'],
-      outputStyle: 'expanded'
-	}))	
-	.on('error', function (err) {
-		sass.logError
-		this.emit('end');
-	})
-    .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {
-      cascade: true
-    }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.css));
-});
+    //return gulp.src(paths.sass + 'vendors/main.scss')
+    return gulp.src('./scss/vendors/main.scss')
+        .pipe(sourcemaps.init())
+        // Stay live and reload on error
+        .pipe(plumber({
+            handleError: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
+        .pipe(
+            sass({
+                includePaths: [paths.sass + 'vendors/'],
+                outputStyle: 'compressed'
+            }).on('error', function (err) {
+                console.log(err.message);
+                // sass.logError
+                this.emit('end');
+            })
+        )
+        .pipe(prefix(['last 15 versions','> 1%','ie 8','ie 7','iOS >= 9','Safari >= 9','Android >= 4.4','Opera >= 30'], {
+            cascade: true
+        }))	
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(paths.css))
+        .pipe(gulp.dest('./build/assets/css/'))
+        // .pipe(browserSync.reload({
+        //     stream: true
+        // }));
+  });
 
 /**
  * Compile .js files into build js directory With app.min.js
@@ -122,7 +129,7 @@ gulp.task('watch', function () {
     // Script JS	
     gulp.watch(paths.build + 'assets/js/script.js', ['js', browserSync.reload]);
     // SCSS files or main.scss
-    gulp.watch([paths.sass + 'vendors/*.scss', paths.sass + '*.scss'], ['sass', browserSync.reload]);
+    gulp.watch(paths.sass + '**/*.scss', ['sass', browserSync.reload]);
     // Assets Watch and copy to build in some file changes    
     gulp.watch(['client/templates/**/*.twig','client/data/*.twig.json'], {cwd:'./'}, ['rebuild']);
 });

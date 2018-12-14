@@ -1,6 +1,7 @@
 {   
-    "title" : "About page title",
-    "description" : "About description content page",
+    "title" : "About Us",
+    "description" : "We are a full service for any of your Internet of Things project company",
+    "header" : "<small class=\"d-block h2\">The IOT Service Agent Company</small>",
     "slug":"about",
     "services" : [
 		{

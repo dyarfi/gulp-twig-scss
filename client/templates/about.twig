@@ -5,16 +5,17 @@
     <!-- ================== Block Main Top ================== -->
     {% include 'blocks/block-main-top.twig' %}
     <div class="container">
-        <div class="row my-5">
-            <div class="col-lg-6 py-5">
-                <h3>We are the IOT Agency</h3>
+        <div class="boxed">
+            <div class="col-lg-6 boxed-left-side">
+                <h3 class="font-weight-bolder text-uppercase text-success">We are the IOT Agency</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum quos minus saepe.</p>
                 <em>Analysis for your IOT Projects</em>
             </div>
-            <div class="col-lg-6 py-5">
+            <div class="col-lg-6 boxed-right-side">
+                <h3 class="font-weight-bolder text-uppercase text-warning">Connected, Collect and Analyze</h3>
                 <blockquote>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, consectetur numquam maiores quidem reiciendis culpa, laudantium sit consequatur sunt hic possimus minima?
-                    <cite>- Connected Devices</cite>
+                    <p class="lead">Weather stations, motion detections or heat maps with any sensor on connected devices</p>
+                    <cite>&mdash; We covered all your dashboard analytics data</cite>
                 </blockquote>
             </div>
         </div>
@@ -36,6 +37,7 @@
                             <div class="promotion-promo">$ {{service.price - disc % 100}}</div>
                             <div class="promotion-price">$ {{service.price}}</div>
                         </div>
+                        <div class="card-footer"><a href="#" class="btn btn-warning">Order</a></div>
                     </div>
                 </div>
                 {% endfor %}

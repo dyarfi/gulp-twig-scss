@@ -14,16 +14,24 @@ $font-family-lead-base : 'Montserrat', sans-serif; // Custom
 $font-weight-light:           100 !default;
 $font-weight-normal:          500 !default;
 $font-weight-bold:            700 !default;
+$font-weight-bolder:          900 !default;
 
-@import "_variables"; // --- Vendors Variables
-@import "bootstrap/bootstrap"; // --- Vendors Bootstrap 4
-
+$white : #ffffff;
+$gray-800: #343a40 !default;
 // Body
 $body-bg :                   $white !default;
 $body-color : $gray-800 !default;
 
 $theme-color : #cc9900 !default; // #cc9900
 $theme:         $theme-color !default;
+
+$link-color:                darken($theme-color, 5%) !default;
+$link-decoration:           none !default;
+$link-hover-color:          darken($theme-color, 15%) !default;
+$link-hover-decoration:     underline !default;
+
+@import "_variables"; // --- Vendors Variables
+@import "bootstrap/bootstrap"; // --- Vendors Bootstrap 4
 
 // Background variables light
 $light-primary : lighten($primary, 25%);
@@ -43,10 +51,33 @@ $dark-info : darken($info, 16%);
 $dark-secondary : darken($secondary, 16%);
 $dark-theme : darken($theme, 32%);
 
-// Display overide
+// Adding font-weight-bolder
+.font-weight-bolder {
+    font-weight: $font-weight-bolder;
+}
+
+// Display override
 .display-1, .display-2, .display-3, .display-4 {
     font-weight: 900;
 }
+// Headline 
+.headline {
+    position: relative;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    &:after {
+        // Positions
+        position: absolute;
+        bottom:0;
+        left:0;
+        content:"";
+        // Sizes
+        height: 6px;
+        width:25%;
+        background-color: #333333;
+    }
+}
+
 // Navbar Brand
 .navbar-brand {
     font-size: 1.35rem;
@@ -56,7 +87,7 @@ $dark-theme : darken($theme, 32%);
     margin-top: 0;
     margin-bottom: 0; 
 }
-// Navbar overide
+// Navbar override
 .navbar {
     padding: 1.35rem 1rem;
     .nav-item {
@@ -73,18 +104,75 @@ $dark-theme : darken($theme, 32%);
                     content:"";
                     position: absolute;
                     z-index: -1;
-                    height: 5px;
+                    height: 3px;
                     width: 26px;
                     left:0;
                     right:0;
-                    bottom:8%;
+                    bottom:17%;
                     margin:0 auto;
                     background-color: rgba($warning, .5);
                 }
             }
         }
     }
+    @include media-breakpoint-down(sm) {
+        .navbar-collapse {
+            margin-top: 1.25rem; 
+            margin-bottom: 1.25rem;
+        }
+        .nav-link {
+            padding-left:0rem;
+            padding-right:0rem;
+            padding-top:.75rem;
+            padding-bottom:.75rem;
+        }
+    }
 }
+// Boxed divs
+.boxed {
+    @include make-row();
+    margin-top:5rem;
+    margin-bottom:5rem;
+    &-left-side {
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        &:before {
+            content:"";
+            position: absolute;
+            left:0;
+            top:-15%;
+            z-index: 0;
+            width: 56%;
+            height: 70px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC') repeat;
+        }
+    }
+    &-right-side {
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        // h3 { color: $dark-warning; }
+        &:before {
+            content:"";
+            position: absolute;            
+            right:0;
+            bottom:-8%;
+            z-index: 0;
+            width: 56%;
+            height: 70px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC') repeat;
+        }
+    }
+    &-bottom {        
+        @include make-row();
+        &-left,
+        &-right {
+            padding:2rem 1.5rem;
+        }
+    }
+}
+
 /* =============================================================================
    Media Queries
    ========================================================================== */
