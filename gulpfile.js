@@ -85,13 +85,15 @@ gulp.task('sass', function () {
 		}
 	}))
     .pipe(sass({
-      includePaths: [paths.sass + 'vendors/'],
-      outputStyle: 'expanded'
-	}))	
-	.on('error', function (err) {
-		sass.logError
-		this.emit('end');
-	})
+		includePaths: [paths.sass + 'vendors/'],
+		outputStyle: 'expanded'
+		})
+		.on('error', function (err) {
+			console.log(err.message);
+			// sass.logError
+			this.emit('end');
+		})
+	)
     .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {
       cascade: true
     }))
