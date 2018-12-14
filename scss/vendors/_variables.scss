@@ -89,8 +89,8 @@ $transition-collapse:         height .55s ease !default;
 $nav-pills-border-radius:           $border-radius !default;
 
 // This cause error on webpack compile on node-sass components
-$navbar-dark-toggler-icon-bg: none;
-$navbar-light-toggler-icon-bg: none;
+// $navbar-dark-toggler-icon-bg: none;
+// $navbar-light-toggler-icon-bg: none;
 
 // Carousel
 $white: #ffffff;

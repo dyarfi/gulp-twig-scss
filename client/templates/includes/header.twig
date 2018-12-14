@@ -1,4 +1,28 @@
     
     <header>
-    <!-- insert your header here -->
+        <!-- /.navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+            <div class="container-fluid font-weight-bold">
+                <a class="navbar-brand ml-3" href="#"><i class="text-warning ">//</i> <span class="text-success">IOTA</span></a>
+                <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>      
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-right">
+                        <li class="nav-item {% if slug == null %}active{% endif %}">
+                            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {% if slug == 'about' %}active{% endif %}">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item {% if slug == 'service' %}active{% endif %}">
+                            <a class="nav-link" href="service.html">Service</a>
+                        </li>
+                        <li class="nav-item {% if slug == 'service' %}active{% endif %}">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>  
     </header>

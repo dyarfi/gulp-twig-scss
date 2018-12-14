@@ -119,9 +119,12 @@ gulp.task('js', function(){
  * Watch .twig files run twig-rebuild then reload BrowserSync
  */
 gulp.task('watch', function () {
-	gulp.watch(paths.build + 'assets/js/script.js', ['js', browserSync.reload]);
-  	gulp.watch(paths.sass + 'vendors/main.scss', ['sass', browserSync.reload]);
-  	gulp.watch(['client/templates/**/*.twig','client/data/*.twig.json'], {cwd:'./'}, ['rebuild']);
+    // Script JS	
+    gulp.watch(paths.build + 'assets/js/script.js', ['js', browserSync.reload]);
+    // SCSS files or main.scss
+    gulp.watch([paths.sass + 'vendors/*.scss', paths.sass + '*.scss'], ['sass', browserSync.reload]);
+    // Assets Watch and copy to build in some file changes    
+    gulp.watch(['client/templates/**/*.twig','client/data/*.twig.json'], {cwd:'./'}, ['rebuild']);
 });
 
 // Build task compile sass and twig.
