@@ -3,51 +3,64 @@
 {% block content %}
     
     <!-- ================== Block Main Top ================== -->
-    {% include 'blocks/block-main-top.twig' %}
-    <div class="container">
+
+    <!-- Photo by Nathan Anderson on Unsplash -->
+    {% include 'blocks/block-main-top.twig' with block_top %}
+        
+    <div class="container" id="learn">
+        <div class="row mt-5">
+            <div class="mx-auto"><h3 class="headline-center">About Us</h3></div>
+        </div>
         <div class="boxed">
             <div class="col-lg-6 boxed-left-side">
-                <h3 class="font-weight-bolder text-uppercase text-success">We are the IOT Agency</h3>
+                <h3 class="font-weight-bolder text-uppercase text-success">We are the IOT Service Agency</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum quos minus saepe.</p>
-                <em>Analysis for your IOT Projects</em>
+                <em class="text-muted">Analysis for your IOT Projects</em>
             </div>
             <div class="col-lg-6 boxed-right-side">
-                <h3 class="font-weight-bolder text-uppercase text-warning">Connected, Collect and Analyze</h3>
+                <h3 class="font-weight-bolder text-uppercase text-success">Connected, Collect and Analyze</h3>
                 <blockquote>
                     <p class="lead">Weather stations, motion detections or heat maps with any sensor on connected devices</p>
-                    <cite>&mdash; We covered all your dashboard analytics data</cite>
+                    <cite class="text-muted">&mdash; We covered all your dashboard analytics data</cite>
                 </blockquote>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="text-center my-5 py-5">
-            <div class="card-deck no-gutters">
-                {% for service in services %}
-                {% set disc = 2 %} 
-                <div class="col-sm-12 col-md-6 col-lg-3 position-relative">
-                    <div class="card rounded mb-4">
-                        <!-- <img class="card-img-top" src="{{ promo.image }}" alt="{{ service.title }}"> -->
-                        <div class="card-header">                                
-                            <h4 class="card-title m-0 p-0">{{ service.title }}</h4>
-                        </div>
-                        <div class="card-body text-left">
-                            <p class="card-text">{{ service.description }}</p>
-                            <span class="font-lead-base font-weight-bold">{{disc}}0% Off!</span>
-                            <div class="promotion-promo">$ {{service.price - disc % 100}}</div>
-                            <div class="promotion-price">$ {{service.price}}</div>
-                        </div>
-                        <div class="card-footer"><a href="#" class="btn btn-warning">Order</a></div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>  
-    </div>
 
-    <!-- ================== Block Main Bottom ================== -->
-    <div class="container my-5">
-        {% include 'blocks/block-main-bottom.twig' %}
+    <div class="container my-5 pb-5" id="about">
+        <div class="row my-5">
+            <div class="mx-auto"><h3 class="headline-center">Getting Started</h3></div>
+        </div>
+        <div class="container-fluid">
+          <div class="boxed-bottom">
+              <div class="boxed-bottom-left col-12 col-md-6 col-lg-4">
+                  <div class="boxed-bottom-content">
+                      <h4 class="font-weight-bolder text-uppercase headline text-muted">Lorem ipsum dolor sit amet.</h4>    
+                      <h4>Learn More About IOTA Connect</h4>
+                      <p class="text-justify">IOTA Connect is an IoT analytics platform service that allows you to aggregate, visualize and analyze live data streams in the cloud. IOTA Connect provides instant visualizations of data posted by your devices to IOTA Connect. With the ability to execute MATLAB® code in IOTA Connect you can perform online analysis and processing of the data as it comes in. IOTA Connect is often used for prototyping and proof of concept IoT systems that require analytics.</p>
+                  </div>
+              </div>
+              <div class="boxed-bottom-right col-12 col-md-6 col-lg-4">
+                  <div class="boxed-bottom-content">            
+                      <h4 class="font-weight-bolder text-uppercase headline text-muted">Lorem ipsum dolor sit amet.</h4>
+                      <h4>What is IoT?</h4>
+                      <p class="text-justify">Internet of Things (IoT) describes an emerging trend where a large number of embedded devices (things) are connected to the Internet.<br><br>
+                      IoT solutions are built for many vertical applications such as environmental monitoring and control, health monitoring, vehicle fleet monitoring, industrial monitoring and control, and various home automation.</p>
+                  </div>    
+              </div>
+              <div class="boxed-bottom-left col-12 col-md-6 col-lg-4">
+                  <div class="boxed-bottom-content">
+                      <h4 class="font-weight-bolder text-uppercase headline text-muted">Lorem ipsum dolor sit amet.</h4>    
+                      <h4>Learn More About IOTA Connect</h4>
+                      <p class="text-justify">IOTA Connect is an IoT analytics platform service that allows you to aggregate, visualize and analyze live data streams in the cloud. IOTA Connect provides instant visualizations of data posted by your devices to IOTA Connect. With the ability to execute MATLAB® code in IOTA Connect you can perform online analysis and processing of the data as it comes in. IOTA Connect is often used for prototyping and proof of concept IoT systems that require analytics.</p>
+                  </div>    
+              </div>
+          </div>
+      </div>
     </div>
+    
+    <!-- ================== Block Main Bottom ================== -->
+
+    {% include 'blocks/block-main-bottom.twig' %}
 
 {% endblock %}

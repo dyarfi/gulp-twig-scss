@@ -1,0 +1,46 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}          
+        
+    <div class="bg-light py-lg-4">
+    
+        <!-- Stephen Dawson on Unsplash -->
+        <!-- Felipe Faria on Unsplash -->
+        <!-- rawpixel on Unsplash -->
+        <div class="container">
+
+            {% for idx, service in services %}
+
+                <div class="row no-gutters py-5 position-relative">
+                    <div class="service-list__image">
+                        <div data-filter="overlay-dark">
+                            <img src="{{ service.image }}" class="img-fluid" alt="{{ service.title }}">
+                        </div>
+                    </div>
+                    <div class="col-9 col-lg-6 service-list__body{{ idx % 2 == 1 ? '_right' : '_left' }}">
+                        <div class="service-list__content">
+                            <div class="service-list__overlay">
+                                <div class="service-list__caption">
+                                    <h3 class="service-list__headline">{{ service.name }}</h3>
+                                    <p class="text-justify">
+                                        {{ service.description }}											
+                                    </p>
+                                    <a href="{{ service.image }}" class="service-list__link btn btn-outline-secondary btn-lg" data-fancybox="img-menus" data-caption="{{ service.title }}">
+                                        <h6 class="font-weight-bolder p-0 m-0 text-uppercase">Read More</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            
+        </div>
+
+    </div>
+    
+    <!-- ================== Block Main Bottom ================== -->
+    {% include 'blocks/block-main-bottom.twig' %}
+
+{% endblock %}

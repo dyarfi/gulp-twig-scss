@@ -2,17 +2,73 @@
 
 {% block content %}
 
-		<!-- ================== Block Main Top ================== -->
-		{# {% include 'blocks/block-main-top.twig' %} #}
-    
-        <div class="container">
-            <div class="col-lg-7 text-center mx-auto border border-warning py-4 px-5 my-5">
-                <h1 class="display-1 text-warning">Gulp, Twig and SCSS</h1>
-                <span class="text-secondary">{{description}}</span>
+    <!-- ================== Block Main Top ================== -->
+
+    <!-- Photo by Hatsukami Morgan on Unsplash -->
+		{% include 'blocks/block-main-top.twig' with block_top %}
+            
+    <div class="container">
+        <div class="my-4">
+
+            {% for idx, service in services %}
+
+            <div class="row mb-5 service-list__home{{ idx % 2 == 1 ? '-right' : '-left' }} pb-5">
+                <div class="{{ idx % 2 == 1 ? 'col-md-8' : 'col-md-8 order-md-2' }}">
+                    <h4 class="mm-heading font-weight-bolder">
+                        {{ service.title }}                    
+                    </h4>
+                    <p class="text-muted">
+                        {{ service.description }}
+                    </p>
+                </div>
+                <div class="{{ idx % 2 == 1 ? 'col-md-4 text-right' : 'col-md-4 order-md-1' }}">
+                    <a href="service.html"><img class="img-thumbnail img-fluid mx-auto" src="{{service.image}}" data-src="holder.js/100px240/auto" alt="{{ service.title }}"></a>
+                </div>    
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="mx-auto">
+                <h3 class="headline-center">Our Packages</h3>
+            </div>            
+        </div>
+
+        <div class="text-center my-5 py-5">
+            <div class="card-deck no-gutters">
+
+                {% for package in packages %}
+                {% set disc = 2 %} 
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 position-relative mx-auto">
+                    <div class="card mb-4">                    
+                        <div class="card-header">                                
+                            <h4 class="card-title m-0 p-0 font-weight-bolder text-secondary">{{ package.title }}</h4>
+                        </div>
+                        <div class="card-body text-left">
+                            <p class="card-text">{{ package.description }}</p>
+                            <span class="font-lead-base font-weight-bold text-muted">{{disc}}0% Off!</span>
+                            <div class="promotion-promo">$ {{package.price}}</div>
+                            <div class="promotion-price">
+                                <div class="promotion-price-desc">Now</div>
+                                <div class="promotion-price-text">$ {{package.price - disc % 100}}</div>                                    
+                            </div>
+                        </div>
+                        <div class="card-footer"><a href="#" class="btn btn-warning">Order</a></div>
+                    </div>
+                </div>
+                {% endfor %}
+
             </div>
         </div>
 
- 		<!-- ================== Block Main Bottom ================== -->
-		{# {% include 'blocks/block-main-bottom.twig' %} #}
+    </div>        
+    
+    <!-- ================== Block Main Bottom ================== -->
+
+		{% include 'blocks/block-main-bottom.twig' %}
 
 {% endblock %}

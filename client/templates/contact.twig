@@ -1,0 +1,114 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}
+
+    <!-- ================== Block Main Top ================== -->
+
+    <!-- Photo by Nathan Anderson on Unsplash -->
+    {% include 'blocks/block-main-top.twig' with block_top %}
+
+    <div class="container my-3 py-5 contact">
+        <div class="col-lg-4 mx-auto pb-2">
+            <h3 class="headline font-weight-bolder text-muted pb-2">Contact Us</h3>
+            <div class="text-center text-muted py-3 mb-0">
+                <p class="lead text-muted">Drop us an email or just say Hi!</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <form class="mx-auto form-contact needs-validation" id="form-contact" novalidate>
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <label for="contact-name">Name</label>
+                                <div class="input-group">
+                                    <input required name="contact-name" id="contact-name" class="form-control" placeholder="Name" type="text">
+                                    <div class="invalid-feedback">
+                                        Insert email.
+                                    </div>
+                                </div>	
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="contact-email">Email</label>
+                                <div class="input-group">
+                                    <input required name="contact-email" id="contact-email" class="form-control" placeholder="Email" type="email">
+                                    <div class="invalid-feedback">
+                                        Insert email.
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <label for="contact-phone">Phone</label>
+                                <div class="input-group">
+                                    <input required name="contact-phone" id="contact-phone" class="form-control" placeholder="Phone" type="text">
+                                    <div class="invalid-feedback">
+                                        Insert phone.
+                                    </div>
+                                </div>	
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="contact-subject">Subject</label>
+                                <div class="input-group">
+                                    <input required name="contact-subject" id="contact-subject" class="form-control" placeholder="Subject" type="text">
+                                    <div class="invalid-feedback">
+                                        Insert subject.
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-12">
+                                <label for="contact-message">Message</label>
+                                <div class="input-group">
+                                    <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Message" rows="3"></textarea>
+                                    <div class="invalid-feedback">
+                                        Insert message.
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-12">
+                                <button type="submit" name="submit" class="btn btn-warning btn-lg btn-block">Submit</button>
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="container">
+                        <div class="row bg-light p-5" style="height:342px">
+                          <h4 class="font-weight-bold uppercase">Head Quarter</h4>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, dolores! 42 Road</p>
+                          <h4 class="font-weight-bold uppercase">Branch Office</h4>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorum tenetur ab! 980 Road</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto">
+                  <div class="col-lg-12 pt-4 mt-5">
+                      <h3 class="text-center font-weight-bolder mb-5">Direct Call or Email</h3>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <h3 class="headline font-weight-bolder"><small class="text-muted">Call us :</small>
+                                  <div class="direct-contact">+62999000-000</div>
+                              </h3>
+                          </div>
+                          <div class="col-lg-6">
+                              <h3 class="headline font-weight-bolder"><small class="text-muted">Email us :</small>
+                                  <div class="direct-contact">email@email.com</div>
+                              </h3>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== Block Main Bottom ================== -->
+
+    {% include 'blocks/block-main-bottom.twig' %}
+
+{% endblock %}

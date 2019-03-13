@@ -6,6 +6,17 @@ Tools :
 * [Bootstrap SCSS](https://github.com/twbs/bootstrap/tree/v4.1.2/scss)
 
 Demos :
-* [Medium](https://medium.com/p/65f4b40d3b8e/)
+* [Medium](https://medium.com/p/a416f89b6669/)
+* [GitHub](https://github.com/dyarfi/gulp-twig-scss/tree/development)
+* [HTML](https://dyarfi.github.io/gulp-twig-scss/development)
 
-**gulp** and **Watch!** :coffee: :heart:
+Credits :
+* [Unsplash](http://unsplash.com)
+* [Trianglify](https://trianglify.io/)
+* [Patternify](http://patternify.com)
+
+`$ npm install`
+
+`$ gulp`
+
+**Gulp** and **Watch!** :coffee: :heart:

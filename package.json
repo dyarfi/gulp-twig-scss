@@ -19,7 +19,7 @@
   ],
   "author": "Defrian Yarfi",
   "license": "ISC",
-  "homepage": "https://dyarfi.github.io",
+  "homepage": "https://dyarfi.github.io/gulp-twig-scss",
   "dependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",

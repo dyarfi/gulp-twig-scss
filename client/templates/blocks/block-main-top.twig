@@ -1,13 +1,12 @@
-<div class="bg-secondary" style="position:relative;z-index:0">
-    <div style="height:100%; padding:3rem 6rem;  background:url('https://images.unsplash.com/photo-1516052315710-aa8a60249a00?ixlib=rb-1.2.1&dpr=1&format=auto') left top no-repeat;
-  background-size:cover; ">
-        <div class="text-center mx-auto border border-warning py-5 px-5 my-5">
-            <h1 class="display-3 text-warning">{{ title }} {{ header }}</h1>
-            <p class="lead my-4"><span class="text-light">{{description}}</span></p>
-            <div class="mx-auto">
-                <a href="#" class="btn btn-warning">Getting Started</a>
-                <a href="#" class="btn btn-outline-warning">Learn More</a>
+
+    <div data-filter="overlay-mute" class="block-top" style="background-image:url('{{block_top.image}}');">
+        <div class="row">
+            <div class="col-12 col-lg-9 text-center mx-auto border border-warning py-5 px-4 my-5">
+                {{ block_top.title }}
+                <div class="mx-auto text-white">
+                    {{ block_top.body }}
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
