@@ -22,7 +22,9 @@
                     </p>
                 </div>
                 <div class="{{ idx % 2 == 1 ? 'col-md-4 text-right' : 'col-md-4 order-md-1' }}">
-                    <a href="service.html"><img class="img-thumbnail img-fluid mx-auto" src="{{service.image}}" data-src="holder.js/100px240/auto" alt="{{ service.title }}"></a>
+                    <a href="service.html">
+                      <img alt="{{ service.title|striptags }}" class="img-thumbnail img-fluid mx-auto" src="{{ service.image }}" data-src="holder.js/100px240/auto">
+                    </a>
                 </div>    
             </div>
             {% endfor %}
