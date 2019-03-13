@@ -113,7 +113,7 @@ gulp.task('js', function(){
             this.emit('end');
         })
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(paths.build +'js'));
+        .pipe(gulp.dest(paths.build +'assets/js'));
 });
 
 /**
