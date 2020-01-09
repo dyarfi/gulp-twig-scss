@@ -52,22 +52,9 @@ gulp.task('twig', function () {
 /**
  * Recompile .twig files and live reload the browser
  */
-gulp.task('rebuild', ['twig'], function () {
+gulp.task('rebuild', gulp.series('twig'), function () {
   // BrowserSync Reload
   browserSync.reload();
-});
-
-/**
- * Wait for twig, js and sass tasks, then launch the browser-sync Server
- */
-gulp.task('browser-sync', ['sass', 'twig', 'js'], function () {
-  browserSync({
-    server: {
-      baseDir: paths.build
-    },
-    notify: false,
-    browser:"google chrome"
-  });
 });
 
 /**
@@ -105,16 +92,29 @@ gulp.task('sass', function () {
  * Compile .js files into build js directory With app.min.js
  */
 gulp.task('js', function(){
-    return gulp.src('build/assets/js/script.js')
-        .pipe(sourcemaps.init())
-        .pipe(concat('script.min.js'))
-        .on('error', function (err) {
-            console.log(err.toString());
-            this.emit('end');
-        })
-		.pipe(sourcemaps.write('.'))		
-		.pipe(gulp.dest('build/assets/js'));
+  return gulp.src('build/assets/js/script.js')
+      .pipe(sourcemaps.init())
+      .pipe(concat('script.min.js'))
+      .on('error', function (err) {
+          console.log(err.toString());
+          this.emit('end');
+      })
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest('build/assets/js'));
 });
+
+/**
+ * Wait for twig, js and sass tasks, then launch the browser-sync Server
+ */
+gulp.task('browser-sync', gulp.parallel('sass', 'twig', 'js', function () {
+  browserSync({
+    server: {
+      baseDir: paths.build
+    },
+    notify: false,
+    browser:"google chrome"
+  });
+}));
 
 /**
  * Watch scss files for changes & recompile
@@ -127,11 +127,11 @@ gulp.task('watch', function () {
 });
 
 // Build task compile sass and twig.
-gulp.task('build', ['sass', 'twig']);
+gulp.task('build', gulp.parallel('sass', 'twig'));
 
 /**
  * Default task, running just `gulp` will compile the sass,
  * compile the project site, launch BrowserSync then watch
  * files for changes
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', gulp.series('browser-sync', gulp.series('watch')));
