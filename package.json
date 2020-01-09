@@ -22,7 +22,7 @@
   "homepage": "https://dyarfi.github.io",
   "dependencies": {
     "browser-sync": "^2.26.3",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-data": "^1.3.1",
